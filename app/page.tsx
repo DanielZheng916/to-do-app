@@ -10,7 +10,7 @@ async function toggleTodo(id: string, complete: boolean) {
   "use server"
 
   console.log(id, complete)
-  await prisma.todo.update({where: {id}, data: {complete}})
+  await prisma.todo.update({ where: { id }, data: { complete } })
 }
 
 export default async function Home() {
@@ -19,20 +19,20 @@ export default async function Home() {
   return (
     <>
       <header className="flex justify-between mb-4 items-center">
-          <h1 className="text-2xl">To Do</h1>
-          <Link 
-            href="/new"
-            className="border border-slate-100 rounded-md px-2 py-1
+        <h1 className="text-2xl">To Do</h1>
+        <Link
+          href="/new"
+          className="border border-slate-100 rounded-md px-2 py-1
             hover:bg-slate-500 focus-within:bg-slate-500 outline-none">
-              New
-          </Link>
+          New
+        </Link>
       </header>
       <ul className="pl-4">
         {/* {todos.map(todo => (
           <li key={todo.id}>{todo.title}</li>
         ))} */}
         {todos.map(todo => (
-          <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo}/>
+          <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} />
         ))}
       </ul>
     </>

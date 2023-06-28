@@ -11,7 +11,7 @@ async function createTodo(data: FormData) {
         throw new Error("invalid title")
     }
 
-    await prisma.todo.create({data: {title, complete: false}})
+    await prisma.todo.create({ data: { title, complete: false } })
 
     redirect("/")
 }
@@ -23,7 +23,7 @@ export default function Page() {
                 <h1 className="text-2xl">New</h1>
             </header>
             <form action={createTodo} className="flex gap-2 flex-col">
-                <input 
+                <input
                     type="text"
                     name="title"
                     className="border border-slate-300 bg-transparent rounded px-2 py-1 
@@ -33,7 +33,7 @@ export default function Page() {
                     <Link href="..">
                         Cancel
                     </Link>
-                    <button type="submit" 
+                    <button type="submit"
                         className="border border-slate-100 rounded-md px-2 py-1
                         hover:bg-slate-500 focus-within:bg-slate-500 outline-none">
                         Create
